@@ -1,0 +1,2 @@
+rootProject.name = 'ProjectDemo'
+include('common', 'dom', 'payment')
