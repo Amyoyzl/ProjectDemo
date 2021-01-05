@@ -23,7 +23,7 @@ public class BookService {
         String bookId = DigestUtils.md5DigestAsHex(bookDto.getName().getBytes());
         BookPayload bookPayload = BookPayload.builder().bookId(bookId).status(MessageConstant.STATUS_CREAT)
                 .timeStamp(LocalDateTime.now()).build();
-        sender.send("", "", bookPayload);
+        sender.send("", "demo.book.update_key", bookPayload);
         return bookId;
     }
 

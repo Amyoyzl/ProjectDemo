@@ -23,7 +23,7 @@ public class Sender<T> {
             String message = objectMapper.writeValueAsString(payload);
             rabbitTemplate.convertAndSend(exchange, routingKey, message);
         } catch (JsonProcessingException e) {
-
+            log.error("Send message failed: {}", payload);
             throw new MessageException(payload.toString(), e);
         }
     }

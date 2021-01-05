@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 
 @Component
-public class DirectReceive {
+public class SimpleReceive {
 
-    @RabbitListener(queues = "")
-    public void directReceiveMessage() {
+    @RabbitListener(queues = "demo.book.update")
+    public void simpleReceiveMessage() {
 
     }
 }
