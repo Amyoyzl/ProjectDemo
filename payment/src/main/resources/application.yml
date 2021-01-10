@@ -7,6 +7,12 @@ spring:
     username: amy
     password: 123456
     virtualHost: amy_host
+    listener:
+      simple:
+        acknowledge-mode: auto  # 自动确认消息
+      direct:
+        acknowledge-mode: auto
+        prefetch: 1
   devtools:
     livereload:
       port: 35732

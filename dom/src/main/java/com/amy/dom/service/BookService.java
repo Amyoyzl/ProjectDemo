@@ -20,7 +20,7 @@ public class BookService {
         this.sender = sender;
     }
 
-    public String createUser(BookDto bookDto) {
+    public String createBook(BookDto bookDto) {
         // todo: convert Dto to model, then save
         String bookId = DigestUtils.md5DigestAsHex(bookDto.getName().getBytes());
         BookPayload bookPayload = BookPayload.builder().bookId(bookId).status(MessageConstant.STATUS_CREAT)
@@ -30,4 +30,12 @@ public class BookService {
         return bookId;
     }
 
+    public void updateBook(String id, BookDto bookDto) {
+        // todo: use id to found book from db, then update book
+        log.info("update book {}", bookDto);
+        BookPayload bookPayload = BookPayload.builder().bookId(id).status(MessageConstant.STATUS_UPDATE)
+                .timeStamp(LocalDateTime.now()).build();
+        sender.send("demo.book.update.work", bookPayload);
+        log.info("Send message {}", bookPayload);
+    }
 }

@@ -3,23 +3,26 @@ package com.amy.dom.controller;
 import com.amy.dom.VO.BookDto;
 import com.amy.dom.VO.Response;
 import com.amy.dom.service.BookService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/book")
 public class BookController {
 
-    private BookService userService;
+    private BookService bookService;
 
     public BookController(BookService userService) {
-        this.userService = userService;
+        this.bookService = userService;
     }
 
     @PostMapping
-    public Response createUser(@RequestBody BookDto userDto) {
-        return Response.create(userService.createUser(userDto));
+    public Response createBook(@RequestBody BookDto bookDto) {
+        return Response.create(bookService.createBook(bookDto));
+    }
+
+    @PutMapping("/{id}")
+    public Response updateBook(@PathVariable String id, @RequestBody BookDto bookDto) {
+        bookService.updateBook(id, bookDto);
+        return Response.update(id);
     }
 }
