@@ -32,3 +32,6 @@ rabbitmqctl set_user_tags username administrator  //修改用户角色,将用户
 - fanout: 将所有的消息给它所知的队列
 > provider1 -> exchange1 -> queues cache1 -> consumers  
 > provider1 -> exchange1 -> queues cache2 -> consumers
+
+![exchange](./exchange.png)
+![queues](./queues.png)
