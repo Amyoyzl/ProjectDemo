@@ -1,4 +1,4 @@
-package com.amy.common.constant;
+package com.amy.dom.constant;
 
 public class ResponseConstant {
     public static final String SUCCESS = "success";

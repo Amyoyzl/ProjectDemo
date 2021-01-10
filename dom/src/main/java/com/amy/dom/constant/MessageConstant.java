@@ -1,4 +1,4 @@
-package com.amy.common.constant;
+package com.amy.dom.constant;
 
 public class MessageConstant {
     public static final String STATUS_CREAT = "create";

@@ -1,8 +1,8 @@
 package com.amy.dom.controller;
 
-import com.amy.common.VO.BookDto;
+import com.amy.dom.VO.BookDto;
+import com.amy.dom.VO.Response;
 import com.amy.dom.service.BookService;
-import com.amy.common.VO.Response;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,2 +1,2 @@
 rootProject.name = 'ProjectDemo'
-include('common', 'dom', 'payment')
+include('dom', 'payment')

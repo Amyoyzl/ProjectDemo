@@ -1,7 +1,7 @@
-package com.amy.common.VO;
+package com.amy.dom.VO;
 
-import com.amy.common.constant.ResponseConstant;
-import com.amy.common.enums.ResponseStatus;
+import com.amy.dom.constant.ResponseConstant;
+import com.amy.dom.enums.ResponseStatus;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

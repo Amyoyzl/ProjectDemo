@@ -1,6 +1,6 @@
-package com.amy.dom;
+package com.amy.dom.message;
 
-import com.amy.common.exception.MessageException;
+import com.amy.dom.exception.MessageException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -17,11 +17,11 @@ public class Sender<T> {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void send (String exchange, String routingKey, T payload) {
+    public void send (String queueName, T payload) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String message = objectMapper.writeValueAsString(payload);
-            rabbitTemplate.convertAndSend(exchange, routingKey, message);
+            rabbitTemplate.convertAndSend(queueName, message);
         } catch (JsonProcessingException e) {
             log.error("Send message failed: {}", payload);
             throw new MessageException(payload.toString(), e);

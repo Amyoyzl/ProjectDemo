@@ -1,4 +1,4 @@
-package com.amy.common.exception;
+package com.amy.dom.exception;
 
 public class MessageException extends RuntimeException {
 

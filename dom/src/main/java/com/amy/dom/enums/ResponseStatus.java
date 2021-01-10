@@ -1,4 +1,4 @@
-package com.amy.common.enums;
+package com.amy.dom.enums;
 
 import lombok.Getter;
 
