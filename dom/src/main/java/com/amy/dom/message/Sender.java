@@ -28,4 +28,15 @@ public class Sender<T> {
         }
     }
 
+    public void publish (String exchange, T payload) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            String message = objectMapper.writeValueAsString(payload);
+            rabbitTemplate.convertAndSend(exchange, "", message);
+        } catch (JsonProcessingException e) {
+            log.error("Send message failed: {}", payload);
+            throw new MessageException(payload.toString(), e);
+        }
+    }
+
 }

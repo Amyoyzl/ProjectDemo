@@ -25,4 +25,10 @@ public class BookController {
         bookService.updateBook(id, bookDto);
         return Response.update(id);
     }
+
+    @PutMapping("/{id}/price")
+    public Response updateBook(@PathVariable String id, @RequestParam double price) {
+        bookService.updateBookPrice(id, price);
+        return Response.update(id);
+    }
 }

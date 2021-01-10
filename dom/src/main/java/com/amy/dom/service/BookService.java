@@ -38,4 +38,13 @@ public class BookService {
         sender.send("demo.book.update.work", bookPayload);
         log.info("Send message {}", bookPayload);
     }
+
+    public void updateBookPrice(String id, double price) {
+        // todo: use id to found book from db, then update book price
+        log.info("update book price: " + price);
+        BookPayload bookPayload = BookPayload.builder().bookId(id).status(MessageConstant.STATUS_UPDATE)
+                .timeStamp(LocalDateTime.now()).build();
+        sender.publish("ex_book.publish", bookPayload);
+        log.info("publish message {}", bookPayload);
+    }
 }

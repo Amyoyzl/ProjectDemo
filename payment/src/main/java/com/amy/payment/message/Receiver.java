@@ -40,4 +40,22 @@ public class Receiver {
         log.info("consumer2 receive message from queue[demo.book.update.work], content: {}", message);
     }
 
+    /**
+     * Publish/Subscribe
+     * @param message
+     */
+    @RabbitListener(queues = "demo.book.update.publish1")
+    public void subscribe1(Message message) {
+        log.info("subscribe1 receive message from queue[demo.book.update.publish1], content: {}", message);
+    }
+
+    /**
+     * Publish/Subscribe
+     * @param message
+     */
+    @RabbitListener(queues = "demo.book.update.publish2")
+    public void subscribe2(Message message) {
+        log.info("subscribe2 receive message from queue[demo.book.update.publish2], content: {}", message);
+    }
+
 }
